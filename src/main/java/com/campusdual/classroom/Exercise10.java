@@ -10,7 +10,18 @@ public class Exercise10 {
     // COLOR_BOLA puede ser → rojo, azul, verde
     public static void main(String[] args) {
 
+        int countColor = 0;
+        do{
+            String color = getBall();
+            if (color == "azul"){
+                countColor ++;
+            }
+            System.out.println("la bola es de color; " + color);
+        }
+        while(countColor <2);
+
     }
+
 
     //TODO ↓
     // Un método que devuelva una cadena de texto con el color de una pelota (en minúscula). Dicho color se escogerá de
@@ -20,10 +31,31 @@ public class Exercise10 {
     // 2 → azul
     // 3 → verde
     public static String getBall() {
-        return null;
+
+        int number = randomWithRange(1, 3);
+        String color = "a" ;
+        switch (number){
+            case 1:
+                color = "rojo";
+                break;
+            case 2:
+                color = "azul";
+                break;
+            case 3:
+                color = "verde";
+                break;
+            default:
+                System.out.println("Elige otro numero");
+                break;
+                
+
+        }
+
+        return color;
     }
 
     public static int randomWithRange(int min, int max) {
+
         return ThreadLocalRandom.current().nextInt(min,max);
     }
 }
